@@ -59,7 +59,7 @@ const SocialLinkItem = ({ children, path, title }) => {
 const SkillItem = ({ title, path, children }) => {
   return (
     <div className="flex flex-col group">
-      <a href={path} target="_blank" rel="noreferrer">
+      <a href={path} target="_blank" rel="noreferrer" aria-label={title}>
         {children}
       </a>
       <a

@@ -26,6 +26,7 @@ const Navbar = () => {
 
         <div className="">
           <button
+            aria-label="Toggle Dark Mode"
             type="button"
             className="relative flex items-center justify-center transition-all bg-gray-600 rounded w-9 h-9 ring-gray-900 hover:ring-2 dark:ring-gray-500 dark:bg-gray-400"
             onClick={handleToggleTheme}
