@@ -1,5 +1,4 @@
 import Image from "next/image";
-import NextLink from "next/link";
 import {
   SiNextdotjs,
   SiReact,
@@ -9,31 +8,38 @@ import {
   SiTwitter,
   SiInstagram,
 } from "react-icons/si";
-import { RiSendPlaneFill } from "react-icons/ri";
-import { motion, useAnimation } from "framer-motion";
 
 import Layout from "../components/layout/Page";
 
-const WorkItem = ({ path, children, title }) => {
-  const controls = useAnimation();
+const WorkItem = ({ path, children, title, githubLink }) => {
   return (
     <div className="space-y-2">
-      <NextLink href={`/works/${path}`} passHref>
-        <motion.div
-          animate={controls}
-          onMouseEnter={() => controls.start({ scale: 1.03 })}
-          onMouseLeave={() => controls.start({ scale: 1 })}
-          whileTap={{ scale: 0.97 }}
-          transition={{ duration: 0.3, type: "easeInOut" }}
-          className="h-48 mb-4 bg-red-400 cursor-pointer sm:h-72"
-        ></motion.div>
-      </NextLink>
-      <NextLink href={`/works/${path}`} passHref>
-        <a className="text-lg font-bold underline transition duration-200 ease-in-out hover:text-red-600 dark:hover:text-blue-400">
+      <a
+        href={path}
+        target="_blank"
+        rel="noreferrer"
+        className="flex flex-col p-4 transition duration-200 ease-in-out border-2 border-gray-900 rounded-lg cursor-pointer group dark:border-gray-100 hover:bg-gray-100/90 dark:hover:bg-gray-800/90"
+      >
+        <a className="text-xl font-bold transition duration-200 ease-in-out group-hover:text-red-600 dark:group-hover:text-blue-400">
           {title}
         </a>
-      </NextLink>
-      <p className="text-gray-600 dark:text-gray-400">{children}</p>
+
+        <p className="my-6 text-gray-600 dark:text-gray-400">{children}</p>
+        <ul className="flex flex-row justify-end mb-4 space-x-4">
+          <li className="italic">Next.js</li>
+          <li className="italic">Supabase</li>
+          <li className="italic">Tailwind CSS</li>
+          <li className="italic">React CodeMirror</li>
+        </ul>
+        <div className="flex flex-row items-center justify-end space-x-4">
+          <a href={githubLink} target="_blank" rel="noreferrer">
+            <SiGithub
+              size="24"
+              className="transition duration-200 ease-in-out hover:text-red-600 dark:hover:text-blue-400"
+            />
+          </a>
+        </div>
+      </a>
     </div>
   );
 };
@@ -102,9 +108,14 @@ export default function Home() {
         <section className="flex flex-col">
           <h2 className="mb-6 text-2xl font-bold">Recent work</h2>
           <div className="flex flex-col gap-16">
-            <WorkItem path="work1" title="Work Item #1">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad,
-              delectus aperiam modi sit ullam veniam.
+            <WorkItem
+              path="https://archive-app.vercel.app/"
+              title="Archive"
+              githubLink="https://github.com/vinzmendoza/archive"
+            >
+              A note-taking web application with markup integration. The app
+              allows basic CRUD functionalities. It also has the option to add
+              tags and use it for filtering.
             </WorkItem>
           </div>
         </section>
@@ -157,13 +168,22 @@ export default function Home() {
             . I&apos;m looking forward to hear from you.
           </p>
           <ul>
-            <SocialLinkItem path="https://www.google.com" title="Github">
+            <SocialLinkItem
+              path="https://github.com/vinzmendoza"
+              title="Github"
+            >
               <SiGithub />
             </SocialLinkItem>
-            <SocialLinkItem path="https://www.google.com" title="Twitter">
+            <SocialLinkItem
+              path="https://twitter.com/vinzmendoza_"
+              title="Twitter"
+            >
               <SiTwitter />
             </SocialLinkItem>
-            <SocialLinkItem path="https://www.google.com" title="Instagram">
+            <SocialLinkItem
+              path="https://instagram.com/vinzmendoza_"
+              title="Instagram"
+            >
               <SiInstagram />
             </SocialLinkItem>
           </ul>
