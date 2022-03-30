@@ -54,6 +54,8 @@ const SocialLinkItem = ({ children, path, title }) => {
         <a
           href={path}
           className="ml-2 underline transition duration-200 ease-in-out group-hover:text-red-600 dark:group-hover:text-blue-400"
+          target="_blank"
+          rel="noreferrer"
         >
           {title}
         </a>
