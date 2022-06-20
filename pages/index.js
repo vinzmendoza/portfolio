@@ -10,77 +10,9 @@ import {
 } from "react-icons/si";
 
 import Layout from "../components/layout/Page";
-
-const WorkItem = ({ path, children, title, githubLink }) => {
-  return (
-    <div className="space-y-2">
-      <a
-        href={path}
-        target="_blank"
-        rel="noreferrer"
-        className="flex flex-col p-4 transition duration-200 ease-in-out border-2 border-gray-900 rounded-lg cursor-pointer group dark:border-gray-100 hover:bg-gray-100/90 dark:hover:bg-gray-800/90"
-      >
-        <a className="text-xl font-bold transition duration-200 ease-in-out group-hover:text-red-600 dark:group-hover:text-blue-400">
-          {title}
-        </a>
-
-        <p className="my-6 text-gray-600 dark:text-gray-400">{children}</p>
-        <ul className="flex flex-row justify-end mb-4 space-x-4">
-          <li className="italic">Next.js</li>
-          <li className="italic">Supabase</li>
-          <li className="italic">Tailwind CSS</li>
-          <li className="italic">React CodeMirror</li>
-        </ul>
-        <div className="flex flex-row items-center justify-end space-x-4">
-          <a href={githubLink} target="_blank" rel="noreferrer">
-            <SiGithub
-              size="24"
-              className="transition duration-200 ease-in-out hover:text-red-600 dark:hover:text-blue-400"
-            />
-          </a>
-        </div>
-      </a>
-    </div>
-  );
-};
-
-const SocialLinkItem = ({ children, path, title }) => {
-  return (
-    <li className="flex flex-row items-start my-4">
-      <div className="flex items-center group">
-        <span className="transition duration-200 ease-in-out group-hover:text-red-600 dark:group-hover:text-blue-400">
-          {children}
-        </span>
-        <a
-          href={path}
-          className="ml-2 underline transition duration-200 ease-in-out group-hover:text-red-600 dark:group-hover:text-blue-400"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {title}
-        </a>
-      </div>
-    </li>
-  );
-};
-
-const SkillItem = ({ title, path, children }) => {
-  return (
-    <div className="flex flex-col group">
-      <a href={path} target="_blank" rel="noreferrer" aria-label={title}>
-        {children}
-      </a>
-      <a
-        href={path}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-2 text-center underline transition duration-200 ease-in-out group-hover:text-red-600 dark:group-hover:text-blue-400"
-      >
-        {title}
-      </a>
-    </div>
-  );
-};
+import SkillItem from "../components/SkillItem";
+import WorkItem from "../components/WorkItem";
+import SocialLinkItem from "../components/SocialLinkItem";
 
 export default function Home() {
   return (
@@ -114,10 +46,27 @@ export default function Home() {
               path="https://archive-app.vercel.app/"
               title="Archive"
               githubLink="https://github.com/vinzmendoza/archive"
+              techUsed={[
+                "Next.js",
+                "Supabase",
+                "Tailwind CSS",
+                "React CodeMirror",
+              ]}
             >
               A note-taking web application with markup integration. The app
               allows basic CRUD functionalities. It also has the option to add
               tags and use it for filtering.
+            </WorkItem>
+            <WorkItem
+              path="https://rikai.vercel.app/"
+              title="Rikai"
+              githubLink="https://github.com/vinzmendoza/rikai"
+              techUsed={["Next.js", "Tailwind CSS", "KanjiAlive API"]}
+            >
+              Rikai is an unofficial web application using the KanjiAlive API
+              and it has 1235 kanji available. Users can search kanji by their
+              english terms, the character itself and other search terms
+              presented in the Rikai web aplication.
             </WorkItem>
           </div>
         </section>
