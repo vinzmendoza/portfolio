@@ -14,7 +14,7 @@ const WorkItem = ({ path, children, title, githubLink, techUsed }) => {
         </a>
 
         <p className="my-6 text-gray-600 dark:text-gray-400">{children}</p>
-        <ul className="flex flex-row justify-end mb-4 space-x-4">
+        <ul className="flex flex-row flex-wrap justify-end mb-4 space-x-4">
           {techUsed.map((tech) => (
             <li key={tech} className="italic">
               {tech}

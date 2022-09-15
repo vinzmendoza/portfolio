@@ -28,15 +28,6 @@ export default function Home() {
               developing web applications with React/Next.js
             </p>
           </div>
-          <div className="w-20 sm:w-52">
-            <Image
-              alt="avatar"
-              src="/avatar.jpg"
-              width={200}
-              height={200}
-              className="rounded-full"
-            />
-          </div>
         </section>
 
         <section className="flex flex-col">
@@ -67,6 +58,22 @@ export default function Home() {
               and it has 1235 kanji available. Users can search kanji by their
               english terms, the character itself and other search terms
               presented in the Rikai web aplication.
+            </WorkItem>
+            <WorkItem
+              path="https://fgo-dmg-calc.vercel.app/"
+              title="Fate/Grand Order NP Damage Calculator"
+              githubLink="https://github.com/vinzmendoza/fgo-dmg-calc"
+              techUsed={[
+                "Next.js",
+                "Tailwind CSS",
+                "fgo-calc",
+                "Atlas Academy API",
+              ]}
+            >
+              A damage calculator for the mobile game Fate/Grand Order. A UI
+              that interfaces with fgo-calc that handles the necessary
+              calculations for the damage calculation specifically the ultimate
+              skill known as Noble Phantasms.
             </WorkItem>
           </div>
         </section>
